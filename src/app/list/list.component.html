@@ -1,1 +1,11 @@
-<p>list works!</p>
+<h1>Breweries</h1>
+
+<!-- ngIf means that the list will only be displayed if brews exists. -->
+<ul *ngIf="brews">
+    <li *ngFor="let brew of brews">
+        <p class="name">{{ brew.name }}</p>
+        <!-- {{ this }} is called interpolation  -->
+        <p class="country">{{ brew.country }}</p>       
+        <a href="{{ brew.website_url }}" class="site">site</a>               
+    </li>
+</ul>

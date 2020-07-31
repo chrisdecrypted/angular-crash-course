@@ -15,3 +15,13 @@ span {
         margin-bottom: 2em;
     }
 }
+
+.active {
+    background-color: blue;
+    border: 5px dotted;
+}
+
+.notactive {
+    background-color: purple;
+    border: 5px dotted;
+}
