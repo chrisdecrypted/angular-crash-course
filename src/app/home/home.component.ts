@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  clickCounter: number = 0;
-  name: string = 'Steve'; 
+  clickCounter = 0;
+  name = '';
   // We do not need to declare types on items whose type is inferred trivially.
   // We can also hard code a default value here.
 

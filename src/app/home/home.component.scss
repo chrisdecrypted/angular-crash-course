@@ -1,6 +1,6 @@
 span {
     font-weight: bold;
-    background: lightgray;
+    background: rgb(245, 245, 245);
     padding: .3em .8em;
     cursor: pointer;
     user-select: none;
@@ -22,6 +22,6 @@ span {
 }
 
 .notactive {
-    background-color: purple;
+    background-color: gray;
     border: 5px dotted;
 }

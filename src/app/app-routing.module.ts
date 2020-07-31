@@ -7,7 +7,7 @@ import { ListComponent } from './list/list.component';
 // We also need to import them on this page like above
 
 // This is where we will add our routes in the array below:
-//each route gets it's own object within the array
+// each route gets it's own object within the array
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'list', component: ListComponent},

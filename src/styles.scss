@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
 
-$primary: rgb(111, 0, 255);
+$primary: rgb(45, 45, 70);
 
 body {
+    background-color: white;
     margin: 0;
     font-family: 'Nunito', 'sans-serif';
     font-size: 18px;
@@ -15,8 +16,12 @@ body {
 }
 
 header {
+    font-size: larger;
     background: $primary;
     padding: 1em 0;
+    -webkit-box-shadow: 0 4px 6px -6px #333;
+    -moz-box-shadow: 0 4px 6px -6px #333;
+    box-shadow: 0 4px 6px -6px #333;
 
     a {
         color: white;

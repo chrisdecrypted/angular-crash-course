@@ -4,7 +4,6 @@
 <ul *ngIf="brews">
     <li *ngFor="let brew of brews">
         <p class="name">{{ brew.name }}</p>
-        <!-- {{ this }} is called interpolation  -->
         <p class="country">{{ brew.country }}</p>       
         <a href="{{ brew.website_url }}" class="site">site</a>               
     </li>

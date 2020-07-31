@@ -1,56 +1,81 @@
 
 
-<h1>Welcome</h1>
+<h1>Learn Angular.js</h1>
 
-<div class="play-container">
-    <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
-    <!-- Example of one-way angular event binding. We wrap the name of the event `click` within html element -->
-    <!-- {{ stuff in here }} displays a property defined from the component (home.component.ts) itself  -->
-</div>
+<p>Wanna learn some dangular Angular? You've come to the right place. This content is adopted from <strong>Angular 8 Crash Course</strong> by Gary Simon. Ready to get started? I bet you are!</p> 
+<p>Here are some cool things you can do with Angular.js 😎 </p>
 
-<div class="play-container">
-   <input type="text" [(ngModel)]="name">
-<br>
-    <strong>You said</strong> {{ name }}
-</div>
-<!-- This is two-way event binding -->
-<!-- We have to edit our app.module.ts -->
+<h1>One Way Binding:</h1>
+    <h2>Clickable Span</h2>
+        <p>We wrapped the word <strong>this</strong> in a span tag featuring a click event listener. This is initially displayed as 0, but increments with each click We are able to show the current count by using interpolation. Enclosing our desired property in double-curly braces displays the property defined as it is defined in the component located in <strong>home.component.ts</strong>.</p>
+            <div class="play-container">
+                <p>You've clicked ✨<span (click)="countClick()">this</span> ✨ {{ clickCounter }} times.</p>
+            </div>
+    <h1>Two-way binding:</h1>
+        <p>When we type something in the input box, you see it displayed down below. We use ngModel to bind our data from the form to the page. </p>
+            <div class="play-container">
+                Type something in this box: 
+                <br><input type="text" [(ngModel)]="name">
+                <br>You said:
+                <br> <strong>{{ name }}</strong> 
+            </div>
+    <h1>Ng-template</h1>
+        <p>Now we can add some new functionality with ng-template. This allows us to build conditional content directly into the page. There are a few different ways you can use this in your code, but we're going to use [ngIf] and [ngIfElse] for our conditions.</p>
+        <p>We can give the [ngIfElse] condition the name "none". Then create a separate ng-template section with our desired content. In our example, this will display "not greater than 4" until the condition is met. Then, the text will change.
+        </p>
+            <div class="play-container">
+                <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+                    <p>The click counter <strong>IS GREATER</strong> than 4.</p>
+                </ng-template>
+            
+                <ng-template #none>
+                    <p>The click counter is <strong>not greater</strong> than 4.</p>
+                </ng-template>
+            </div>
 
-<div class="play-container" [ngClass]="setClasses()">
-    Here is class
-</div>
+    <h1>Style Binding</h1>
 
+    <h2>Simple logic directly in HTML tag</h2>
+    <p>In the below div, we can display different CSS by placing a conditional statement directly into the tag. All we have to do is  add <strong>[class.active]="clickCounter > 4" </strong> inside the div tag.
+    </p>
+        <div class="play-container" [class.active]="clickCounter > 4">
+        <br>CSS class will change to <strong>active</strong> when the condition is met.
+        </div>
 
-<!-- We can also use classes -->
-<div class="play-container" [class.active]="clickCounter > 4">
-    Here is class
-</div>
+    <h2>Combining Ng-template and Style Mods</h2>
+    <p>We can take that same code and add css style changes to reflect the condition. For this example, we'll add <strong>[style.background-color]="clickCounter > 4 ? 'red' : 'lightgray'"</strong> to our div tag.
+    </p>
+    <p>If you have never seen code like this before, that is called a ternary operator. Think of it like an inline if/else condition.</p>
 
+    <div class="play-container" [style.background-color]="clickCounter > 4 ? 'red' : 'lightgray'">
+        <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+            <p>The click counter <strong>IS GREATER</strong> than 4 and my background is red!!!</p>
+        </ng-template>
+        <ng-template #none>
+            <p>The click counter is <strong>not greater</strong> than 4 and my background is the lightest of grays.</p>
+        </ng-template>
+    </div>
 
+    <h2>Changling Multiple Style Elements with ngStyle</h2>
+        <p>We can use ngStyle to modify multiple inline css elements.</p>
+        <p>We insert the following code into our div: 
+        <br><strong>[ngStyle]="{{ '{' }}
+        <br>  'background-color' : clickCounter > 4 ? 'yellow' : 'lightgray',
+        <br> 'border':            clickCounter > 4 ? '4px solid black' : 'none'<br>
+        }"</strong></p>
+        <div class="play-container" [ngStyle]="{
+            'background-color' : clickCounter > 4 ? 'yellow' : 'lightgray',
+            'border':            clickCounter > 4 ? '4px solid black' : 'none'
+        }">
+            <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+            <!-- If condition met, anything posted here will be displayed -->
+            <p>The click counter is greater than 4mmm.</p>
+            </ng-template>
+        
+        </div>
 
-<!-- Below, we used [style.bgcolor], but if we wanted to change multiple elements we can use [ngStyle] -->
-<div class="play-container" [ngStyle]="{
-    'background-color' : clickCounter > 4 ? 'yellow' : 'lightgray',
-    'border':            clickCounter > 4 ? '4px solid black' : 'none'
-}">
-
-
-    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-    <!-- If condition met, anything posted here will be displayed -->
-    <p>The click counter is greater than 4.</p>
-    </ng-template>
-</div>
-
-<div class="play-container" [style.background-color]="clickCounter > 4 ? 'red' : 'lightgray'">
-<ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-<!-- If condition met, anything posted here will be displayed -->
-<p>The click counter is greater than 4.</p>
-</ng-template>
-
-<ng-template #none>
-    <!-- If not true, this will happen. -->
-<p>The click counter is NOT greater than 4.</p>
-</ng-template>
- </div>
-
- <!-- This uses ngTemplate to allow conditional statements -->
+        <h2>Changling Multiple Style Elements with ngClass</h2>
+        <p>We can add a function to our component logic file and call it with <strong>[ngClass]="setClasses()"</strong></p>
+        <div class="play-container" [ngClass]="setClasses()">
+        This div will change CSS styles from the class <strong>.notactive [gray with dotted border]</strong> to <strong>.active[blue]</strong> once the clickCount() > 4.
+        </div>
