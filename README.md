@@ -3,6 +3,7 @@ This project was created by following a tutorial for Angular 8 / Typescript.
 
 The notes below are my own, but the original content was created by `Gary Simon`. Here's the  [original tutorial text](https://coursetro.com/posts/code/174/Angular-8-Tutorial-&-Crash-Course).
 
+Live version here: https://angular8-crash-course.netlify.app/
 
 # Concepts Covered
 
@@ -12,7 +13,7 @@ The notes below are my own, but the original content was created by `Gary Simon`
 + Component logic (TS code)
 
 ## App Routing
-First, we created a simple Nav bar with a logo ("CoolApp") and two links.
+First, we created a simple Nav bar with a logo ("Angular Crash Course") and two links.
 
 The links do not actually use `href` tags. Instead navigation is done through routes.
 
